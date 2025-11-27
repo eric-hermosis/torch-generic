@@ -6,8 +6,7 @@ Params = Union[Iterable[torch.Tensor], Iterable[Dict[str, Any]]]
 
 class GGD(Optimizer):
     """
-    Implements the Generic Gradient Descent (GGD) optimization algorithm with
-    lookahead Force Vector.
+    Implements the Generic Gradient Descent (GGD) optimization algorithm.
     """
     def __init__(
         self, 
