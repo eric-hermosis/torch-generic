@@ -15,7 +15,7 @@ class CHGD(Optimizer):
         beta: float = 0.9, 
         gamma=0.1
     ):
-        defaults = dict(lr=lr, beta=beta, k=k, gamma=gamma)
+        defaults = dict(lr=lr, beta=beta, gamma=gamma)
         super().__init__(params, defaults)
 
     @torch.no_grad()
