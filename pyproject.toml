@@ -1,7 +1,7 @@
 [project]
 name = "torchgeneric"
-version = "0.1.2"
-description = "GENERIC-based learning"
+version = "0.2.0"
+description = "Generic Artificial Learning Algorithms"
 authors = [
     {name = "eric-hermosis",email = "eric.hermosis@gmail.com"}
 ]

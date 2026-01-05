@@ -1,12 +1,14 @@
 import torch
-from typing import Dict, Any, Iterable, Union  
+from typing import Optional
+from typing import Dict, Any, Iterable, Union, Callable
 from torch.optim.optimizer import Optimizer
 
 Params = Union[Iterable[torch.Tensor], Iterable[Dict[str, Any]]]
 
-class CHGD(Optimizer):
+class Classical(Optimizer):
     """
-    Classical Hamiltonian Gradient Descent
+    Classical Hermosian Flux Optimizer. Potential energy decoupled 
+    from metric tensor.
     """
     def __init__(
         self, 
@@ -19,7 +21,7 @@ class CHGD(Optimizer):
         super().__init__(params, defaults)
 
     @torch.no_grad()
-    def step(self, closure=None):
+    def step(self, closure: Optional[Callable[[], float]] = None) -> Optional[float]:
         loss = None
         if closure is not None:
             loss = closure()
@@ -52,9 +54,10 @@ class CHGD(Optimizer):
         return loss
 
 
-class RHGD(Optimizer):
+class Semiclassical(Optimizer):
     """
-    Relativistic Hamiltonian Gradient Descent
+    Semiclassical Hermosian Flux Optimizer. Potential energy embedded 
+    in metric tensor.
     """
     def __init__(
         self, 
@@ -68,7 +71,8 @@ class RHGD(Optimizer):
         super().__init__(params, defaults)
 
     @torch.no_grad()
-    def step(self, closure=None):
+    def step(self, closure: Optional[Callable[[], float]] = None) -> Optional[float]:
+
         loss = None
         if closure is not None:
             loss = closure()
