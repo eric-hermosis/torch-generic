@@ -1,2 +1,2 @@
-# ggd-optimizer
-Generic Gradient Descent
+# Generic Neural Networks Algorithms
+Neural Networks Algorithms, created by me
